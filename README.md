@@ -1,68 +1,17 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project: Random Recipe Generator
 
-## Available Scripts
+## What problem are you trying to solve?
 
-In the project directory, you can run:
+When coming to college, many students, myself included, struggle to juggle class, homework, extracurriculars, social life, and, of course, deciding what to eat for dinner every night. What my application will do is select a random recipe out of recipes the user inputs in order to help them decide what to eat for dinner.
 
-### `yarn start`
+## Who is the primary audience?
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Myself, college students, and other adults who hate choosing what to make for dinner all the time!
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## How will the project requirements be fulfilled?
 
-### `yarn test`
+I will have multiple pages, each with their own route. First, I am going to have an `AddRecipe` page on which there is a form that the user can use to add information about recipes, such as the name, ingredients, or a link to the recipe. Then, when the user clicks `submit`, the recipe will be saved to the database hosted on AWS using a `POST` request and there will be a notification that the recipe was successfully saved to their recipe book. The `GenerateRecipe` page will randomly select a recipe for the user to cook using a `GET` request on page load. There will also be a `RecipeBook` page which will use a `GET` request to retrieve all of the user's saved recipes. This page will have a nested route called `EditRecipe` which the user can navigate to in order to change the content of a recipe– my site will use a `PUT/PATCH` request to update the database. Finally, the user will be able to `DELETE` a recipe on the `RecipeBook` page by clicking an `x` next to any recipe they have entered. My reusable component will be my `recipe cards` which make up the `RecipeBook` because they could easily be repurposed to display non-recipe data and because I will need to access them in multiple parts of my application, like on the `GenerateRecipe` page.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Which libraries do you think you will use and for what?
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+I'm going to use React Router for creating my site's routes. Other than that, I don't think I'm going to be using any libraries. That being said, I plan on using AWS on my backend to store the recipes and create APIs.
