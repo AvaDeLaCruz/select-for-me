@@ -1,24 +1,41 @@
-/* @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext"); */
+html {
+  background-color: white;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 25px;
+}
 
-.App {
+body {
+  height: 100%;
+}
+
+ul {
+  list-style-type: none;
+  background-color: #184965;
+  padding: 25px 0;
+  margin: 0 auto;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+li {
+  display: inline;
+  padding: 0 10%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+a {
   color: white;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #09d3ac;
+a.active {
+  color: #ffb930;
+}
+
+h2 {
+  color: #ffb930;
+}
+
+hr {
+  width: 95%;
+  margin: 0;
 }
