@@ -14,13 +14,13 @@ export default class App extends React.Component {
     return (
       <Router>
         <ul class="navbar">
-          <li>
+          <li class="left-nav">
             <NavLink to="/add">Add Recipe</NavLink>
           </li>
           <li>
             <NavLink to="/pick">Pick For Me</NavLink>
           </li>
-          <li>
+          <li class="right-nav">
             <NavLink to="/book">Recipe Book</NavLink>
           </li>
         </ul>
