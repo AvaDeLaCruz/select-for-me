@@ -1,4 +1,4 @@
-.recipeDetails {
+.recipeCard {
   margin-top: 25px;
   border: 1px solid black;
   border-radius: 5px;
@@ -38,7 +38,7 @@
 }
 
 .recipeDetails table {
-  margin-top: 25px;
+  margin: 25px 0;
   width: 100%;
 }
 
@@ -56,4 +56,14 @@
   padding: 0 0 0 25px;
   vertical-align: top;
   border-left: 1px dashed #aac3cf;
+}
+
+.recipeDetails .linkText {
+  margin: 25px 5% 25px 12.5px;
+  float: right;
+}
+
+.recipeDetails a {
+  color: #72a7af;
+  padding-left: 5px;
 }
