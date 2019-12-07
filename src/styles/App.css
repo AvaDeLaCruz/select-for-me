@@ -47,3 +47,12 @@ hr {
   background-color: #aac3cf;
   border: 0.5px solid #aac3cf;
 }
+
+footer {
+  color: #757575;
+  position: absolute;
+  bottom: 0;
+  width: 98%;
+  text-align: right;
+  font-size: 12px;
+}

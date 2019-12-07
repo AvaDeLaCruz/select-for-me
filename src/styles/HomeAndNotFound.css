@@ -11,12 +11,19 @@
 
 .homePage h1,
 .pageNotFound h1 {
-  font-size: 10vh;
   margin-bottom: 20px;
   margin-top: 0;
   padding-top: 25vh;
   font-weight: bolder;
   font-style: italic;
+}
+
+.homePage h1 {
+  font-size: 10vh;
+}
+
+.pageNotFound h1 {
+  font-size: 5vh;
 }
 
 .homePage mark,

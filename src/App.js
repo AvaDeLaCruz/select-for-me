@@ -8,6 +8,8 @@ import {
 import "./styles/App.css";
 import HomePage from "./components/HomePage";
 import AddPage from "./components/AddPage";
+import PickPage from "./components/PickPage";
+import BookPage from "./components/BookPage";
 import PageNotFound from "./components/PageNotFound";
 
 export default function App() {
@@ -25,12 +27,16 @@ export default function App() {
         </li>
       </ul>
       <hr></hr>
+      <footer>
+        Cooked up by{" "}
+        <a href="https://www.linkedin.com/in/ava-delacruz/">Ava DeLaCruz</a> :)
+      </footer>
 
       <Switch>
         <Route path="/" exact={true} component={HomePage}></Route>
         <Route path="/add" component={AddPage}></Route>
-        <Route path="/pick"></Route>
-        <Route path="/book"></Route>
+        <Route path="/pick" component={PickPage}></Route>
+        <Route path="/book" component={BookPage}></Route>
         <Route component={PageNotFound}></Route>
       </Switch>
     </Router>
