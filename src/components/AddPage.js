@@ -15,16 +15,16 @@ export default class AddPage extends React.Component {
 
   handleSearch = async event => {
     event.preventDefault();
-    // this.setState({ loading: true });
-    // let searchTerm = event.target.searchTerm.value;
-    // let url =
-    //   "https://api.edamam.com/search?app_id=6a7eb714&app_key=2a86ad87280db39e7fb0fadd79840ecf&q=" +
-    //   searchTerm;
-    // let response = await fetch(url);
-    // let json = await response.json();
-    // let results = json.hits;
-    // console.log(results);
-    // this.setState({ results, loading: false });
+    this.setState({ loading: true });
+    let searchTerm = event.target.searchTerm.value;
+    let url =
+      "https://api.edamam.com/search?app_id=6a7eb714&app_key=2a86ad87280db39e7fb0fadd79840ecf&q=" +
+      searchTerm;
+    let response = await fetch(url);
+    let json = await response.json();
+    let results = json.hits;
+    console.log(results);
+    this.setState({ results, loading: false });
   };
 
   render() {
@@ -43,20 +43,23 @@ export default class AddPage extends React.Component {
           ></input>
           <input type="submit" className="searchButton" value="Search"></input>
         </form>
-        <div className="searchResults">
+        {/* <div className="searchResults">
           <SearchResult name="Pizza Dough" />
           <SearchResult name="Pizza Sauce" />
           <SearchResult name="Pizza Pie" />
-        </div>
+        </div> */}
 
-        {/* {this.state.loading ? (
+        {this.state.loading ? (
           <Loading />
         ) : (
-          this.state.results.map(result => {
-            return <SearchResult name={result.recipe.label} />;
-            // <div key={result.recipe.uri}>{result.recipe.label}</div>;
-          })
-        )} */}
+          <div className="searchResults">
+            {this.state.results.map(result => {
+              return (
+                <SearchResult key={result.key} name={result.recipe.label} />
+              );
+            })}
+          </div>
+        )}
       </div>
     );
   }
