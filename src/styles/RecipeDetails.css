@@ -1,7 +1,7 @@
 .recipeDetails {
   margin-top: 25px;
   border: 1px solid black;
-  border-width: 5px;
+  border-radius: 5px;
   width: 95%;
   min-width: 200px;
 }
@@ -32,7 +32,28 @@
 }
 
 .recipeDetails .directions,
-.recipeDetails .noDirections {
+.recipeDetails p {
   margin-top: 5px;
   margin-left: 40px;
+}
+
+.recipeDetails table {
+  margin-top: 25px;
+  width: 100%;
+}
+
+.recipeDetails h2 {
+  margin-top: 1px;
+  font-style: italic;
+}
+
+.recipeDetails .firstCol {
+  width: 30%;
+  padding-right: 25px;
+}
+
+.recipeDetails .secondCol {
+  padding: 0 0 0 25px;
+  vertical-align: top;
+  border-left: 1px dashed #aac3cf;
 }

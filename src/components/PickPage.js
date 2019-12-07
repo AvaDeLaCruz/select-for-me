@@ -20,6 +20,13 @@ export default class PickPage extends React.Component {
         </h1>
         <h2>Refresh the page to randomly generate a new recipe</h2>
         <RecipeDetails title="Margherita Pizza"></RecipeDetails>
+        <p className="linkText">
+          {" "}
+          Link:
+          <a href="https://www.saveur.com/article/Recipes/Pizza-Margherita-Tomato-Basil-and-Mozzarella-Pizza/">
+            https://www.saveur.com/article/Recipes/Pizza-Margherita-Tomato-Basil-and-Mozzarella-Pizza/
+          </a>
+        </p>
       </div>
     );
   }

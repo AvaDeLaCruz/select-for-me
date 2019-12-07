@@ -11,7 +11,6 @@
 
 .searchResult:hover {
   background-color: #c1e6ec;
-  /* cursor: pointer; */
 }
 
 .resultSource {
@@ -20,7 +19,8 @@
   font-weight: 100;
 }
 
-.favoriteButton {
+.favoriteButton,
+.detailsButton {
   float: right;
   margin-right: 25px;
   margin-top: 10px;
@@ -29,6 +29,7 @@
   background-color: inherit;
 }
 
-.favoriteButton:hover {
+.favoriteButton:hover,
+.detailsButton:hover {
   cursor: pointer;
 }

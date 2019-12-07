@@ -26,14 +26,14 @@
   margin-bottom: 25px;
 }
 
-.pickPage .recipeDetails {
-  border: 2px solid black;
-  border-radius: 5px;
+.pickPage .linkText {
+  margin: 25px 5% 25px 12.5px;
+  float: right;
 }
 
-.pickPage h1.recipeTitle {
-  color: pink;
-  margin: 25px 0 15px 15px;
+.pickPage a {
+  color: #72a7af;
+  padding-left: 5px;
 }
 
 @media only screen and (max-device-width: 1024px) {
