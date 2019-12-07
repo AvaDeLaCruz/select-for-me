@@ -5,10 +5,10 @@ import {
   Switch,
   NavLink
 } from "react-router-dom";
-import "./App.css";
-import HomePage from "./HomePage";
-import AddPage from "./AddPage";
-import PageNotFound from "./PageNotFound";
+import "./styles/App.css";
+import HomePage from "./components/HomePage";
+import AddPage from "./components/AddPage";
+import PageNotFound from "./components/PageNotFound";
 
 export default function App() {
   return (

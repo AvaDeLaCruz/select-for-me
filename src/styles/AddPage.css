@@ -11,12 +11,18 @@
   color: black;
   font-size: 4vh;
   margin: 50px auto 0 auto;
+  font-style: italic;
+}
+
+.addPage mark {
+  background-color: #c1e6ec;
 }
 
 .addPage h2 {
-  color: #184965;
-  font-size: 3vh;
+  color: black;
+  font-size: 2vh;
   margin-top: 0;
+  font-weight: 100;
 }
 
 .addPage .searchForm {
@@ -32,15 +38,15 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   padding: 0 10px;
-  border: 1px solid #184965;
+  border: 2px solid black;
   border-radius: 5px;
-  color: white;
-  background: rgba(24, 73, 101, 0.5);
+  color: black;
+  background: white;
   margin: 0 2.5px;
 }
 
 ::placeholder {
-  color: white;
+  color: #757575;
 }
 
 .addPage .searchButton {
@@ -48,19 +54,28 @@
   font-size: 2vh;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  background-color: #184965;
+  background-color: black;
   color: white;
+  font-weight: 600;
   width: 15%;
   height: 50px;
   border: 0;
-  /* border: 1px solid #003344; */
+  /* border: 2px solid black; */
   border-radius: 5px;
   padding: 1px 10px;
   margin: 0 2.5px;
+}
+
+.searchButton:hover {
+  cursor: pointer;
 }
 
 @media only screen and (max-device-width: 1024px) {
   .addPage {
     padding: 0 25px;
   }
+}
+
+.searchResults {
+  margin-top: 75px;
 }

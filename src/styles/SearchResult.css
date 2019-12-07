@@ -1,0 +1,16 @@
+.searchResult {
+  padding: 20px 0 20px 15px;
+  margin: 10px 0;
+  width: 95%;
+  border-radius: 5px;
+  border: 1px solid black;
+  /* background-color: #c1e6ec; */
+  color: black;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.searchResult:hover {
+  background-color: #c1e6ec;
+  cursor: pointer;
+}

@@ -1,7 +1,7 @@
 .homePage,
 .pageNotFound {
-  background-color: #184965;
-  color: white;
+  background-color: white;
+  color: black;
   font-family: "Poppins", sans-serif;
   text-align: center;
   height: 92.5vh;
@@ -16,18 +16,25 @@
   margin-top: 0;
   padding-top: 25vh;
   font-weight: bolder;
+  font-style: italic;
+}
+
+.homePage mark,
+.pageNotFound mark {
+  background-color: #c1e6ec;
 }
 
 .homePage h2,
 .pageNotFound h2 {
-  font-size: 5vh;
+  font-size: 4vh;
   font-weight: 600;
 }
 
 .homePage h3,
 .pageNotFound h3 {
+  margin-top: 100px;
   margin-bottom: 0;
-  font-size: 4vh;
+  font-size: 3vh;
   font-weight: 200;
 }
 
@@ -40,7 +47,7 @@
   .pageNotFound h1 {
     font-size: 4vh;
     margin-bottom: 20px;
-    padding-top: 5vh;
+    padding-top: 10vh;
     margin-top: 0;
   }
 
@@ -52,7 +59,8 @@
 
   .homePage h3,
   .pageNotFound h3 {
-    font-size: 3vh;
+    font-size: 2vh;
     font-weight: 600;
+    margin-top: 5vh;
   }
 }
