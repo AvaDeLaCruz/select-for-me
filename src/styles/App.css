@@ -9,16 +9,16 @@ body {
   height: 100%;
 }
 
-ul {
+.navbar {
   list-style-type: none;
   padding: 2.5vh 0;
   margin: 0 auto;
   text-align: center;
 }
 
-li {
+.navbar li {
   display: inline;
-  padding: 0 7.5%;
+  padding: 0 5%;
   font-weight: 400;
 }
 
@@ -50,9 +50,10 @@ hr {
 
 footer {
   color: #757575;
-  position: absolute;
+  position: fixed;
   bottom: 0;
-  width: 98%;
+  right: 0;
   text-align: right;
   font-size: 12px;
+  background-color: white;
 }

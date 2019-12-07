@@ -9,7 +9,8 @@ export default class AddPage extends React.Component {
     super(props);
     this.state = {
       results: [],
-      loading: false
+      loading: false,
+      userHasSearched: false
     };
   }
 
@@ -24,7 +25,7 @@ export default class AddPage extends React.Component {
     let json = await response.json();
     let results = json.hits;
     console.log(results);
-    this.setState({ results, loading: false });
+    this.setState({ results, loading: false, userHasSearched: true });
   };
 
   render() {
@@ -53,11 +54,18 @@ export default class AddPage extends React.Component {
           <Loading />
         ) : (
           <div className="searchResults">
-            {this.state.results.map(result => {
-              return (
-                <SearchResult key={result.key} name={result.recipe.label} />
-              );
-            })}
+            {this.state.results.length === 0 && this.state.userHasSearched ? (
+              <p>No results found.</p>
+            ) : (
+              this.state.results.map(result => {
+                return (
+                  <SearchResult
+                    key={result.recipe.uri}
+                    name={result.recipe.label}
+                  />
+                );
+              })
+            )}
           </div>
         )}
       </div>
