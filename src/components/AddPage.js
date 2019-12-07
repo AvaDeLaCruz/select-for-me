@@ -44,13 +44,13 @@ export default class AddPage extends React.Component {
           ></input>
           <input type="submit" className="searchButton" value="Search"></input>
         </form>
-        {/* <div className="searchResults">
-          <SearchResult name="Pizza Dough" />
-          <SearchResult name="Pizza Sauce" />
-          <SearchResult name="Pizza Pie" />
-        </div> */}
+        <div className="searchResults">
+          <SearchResult name="Pizza Dough" source="Martha Stewart" />
+          <SearchResult name="Pizza Sauce" source="Lottie + Doof" />
+          <SearchResult name="Pizza Pie" source="Saveur" />
+        </div>
 
-        {this.state.loading ? (
+        {/* {this.state.loading ? (
           <Loading />
         ) : (
           <div className="searchResults">
@@ -67,7 +67,7 @@ export default class AddPage extends React.Component {
               })
             )}
           </div>
-        )}
+        )} */}
       </div>
     );
   }
