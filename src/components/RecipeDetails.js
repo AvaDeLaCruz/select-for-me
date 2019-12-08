@@ -14,23 +14,24 @@ export default function RecipeDetails(props) {
             <tr>
               <td className="firstCol">
                 <h2>Ingredients</h2>
-                <ul className="ingredientsList">
-                  <li>1 recipe Naples-style pizza dough</li>
-                  <li>Fine semolina, for dusting</li>
-                  <li>1 recipe Naples-style pizza sauce</li>
-                  <li>1 lb. fresh mozzarella, thinly sliced</li>
-                  <li>16 fresh basil leaves</li>
-                  <li>Olive oil, to taste</li>
-                </ul>
+                {props.ingredients.length === 0 ? (
+                  <p className="noIngredients">No ingredients found.</p>
+                ) : (
+                  <ol className="ingredientsList">
+                    {props.ingredients.map(ingredient => {
+                      return <li key={ingredient}>{ingredient}</li>;
+                    })}
+                  </ol>
+                )}
               </td>
               <td className="secondCol">
                 <h2>Directions</h2>
-                {props.ingredients.length === 0 ? (
+                {props.directions.length === 0 ? (
                   <p className="noDirections">No directions found.</p>
                 ) : (
                   <ol className="directions">
-                    {props.ingredients.map(ingredient => {
-                      return <li key={ingredient}>{ingredient}</li>;
+                    {props.directions.map(direction => {
+                      return <li key={direction}>{direction}</li>;
                     })}
                   </ol>
                 )}

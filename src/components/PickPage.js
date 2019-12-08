@@ -29,7 +29,8 @@ export default class PickPage extends React.Component {
         <RecipeDetails
           title="Margherita Pizza"
           author="Martha Stewart"
-          ingredients={[
+          ingredients={["dough", "sauce", "basil", "olive oil"]}
+          directions={[
             "Place a pizza stone under the broiler; heat for 30 minutes. Working in 4 batches, dust 1 ball dough with semolina.",
             "transfer to a semolina-dusted pizza peel.",
             "Spread 1⁄2 cup sauce over dough, and distribute a quarter each of the cheese and basil leaves"
