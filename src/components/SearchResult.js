@@ -11,7 +11,7 @@ export default function SearchResult(props) {
       <button className="detailsButton" title="more details">
         ∙∙∙
       </button>
-      <div className="resultSource">{props.source}</div>
+      <div className="resultAuthor">{props.author}</div>
     </div>
   );
 }

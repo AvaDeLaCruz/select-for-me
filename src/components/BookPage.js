@@ -19,9 +19,9 @@ export default class BookPage extends React.Component {
         </h1>
         <h2>Browse through your saved recipes or delete recipes</h2>
         <div className="searchResults">
-          <SearchResult name="Pizza Dough" source="Martha Stewart" symbol="-" />
-          <SearchResult name="Pizza Sauce" source="Lottie + Doof" symbol="-" />
-          <SearchResult name="Pizza Pie" source="Saveur" symbol="-" />
+          <SearchResult name="Pizza Dough" author="Martha Stewart" symbol="–" />
+          <SearchResult name="Pizza Sauce" author="Lottie + Doof" symbol="–" />
+          <SearchResult name="Pizza Pie" author="Saveur" symbol="–" />
         </div>
       </div>
     );

@@ -45,9 +45,9 @@ export default class AddPage extends React.Component {
           <input type="submit" className="searchButton" value="Search"></input>
         </form>
         <div className="searchResults">
-          <SearchResult name="Pizza Dough" source="Martha Stewart" symbol="+" />
-          <SearchResult name="Pizza Sauce" source="Lottie + Doof" symbol="+" />
-          <SearchResult name="Pizza Pie" source="Saveur" symbol="+" />
+          <SearchResult name="Pizza Dough" author="Martha Stewart" symbol="+" />
+          <SearchResult name="Pizza Sauce" author="Lottie + Doof" symbol="+" />
+          <SearchResult name="Pizza Pie" author="Saveur" symbol="+" />
         </div>
 
         {/* {this.state.loading ? (
