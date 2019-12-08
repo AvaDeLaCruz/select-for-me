@@ -5,7 +5,7 @@ export default function RecipeDetails(props) {
   return (
     <div className="recipeDetails">
       <div className="recipeCard">
-        <span className="servings">Servings: 4</span>
+        <span className="servings">Servings: {props.servings}</span>
         <h1>{props.title}</h1>
         <div className="resultAuthor">{props.author}</div>
         <hr></hr>
@@ -39,18 +39,14 @@ export default function RecipeDetails(props) {
             </tr>
           </thead>
         </table>
+        <p className="linkText">
+          {" "}
+          Link:
+          <a target="_blank" rel="noopener noreferrer" href={props.link}>
+            {props.link}
+          </a>
+        </p>
       </div>
-      <p className="linkText">
-        {" "}
-        Link:
-        <a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="https://www.saveur.com/article/Recipes/Pizza-Margherita-Tomato-Basil-and-Mozzarella-Pizza/"
-        >
-          https://www.saveur.com/article/Recipes/Pizza-Margherita-Tomato-Basil-and-Mozzarella-Pizza/
-        </a>
-      </p>
     </div>
   );
 }

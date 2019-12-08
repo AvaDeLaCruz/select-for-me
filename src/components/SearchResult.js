@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/SearchResult.css";
+import RecipeDetails from "./RecipeDetails";
 
 export default function SearchResult(props) {
   return (
@@ -8,7 +9,11 @@ export default function SearchResult(props) {
       <button className="favoriteButton" title="un/favorite recipe">
         {props.symbol}
       </button>
-      <button className="detailsButton" title="more details">
+      <button
+        className="detailsButton"
+        title="more details"
+        onClick={props.viewDetails}
+      >
         ∙∙∙
       </button>
       <div className="resultAuthor">{props.author}</div>

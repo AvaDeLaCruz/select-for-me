@@ -5,6 +5,7 @@
   width: 95%;
   min-width: 200px;
   padding: 12.5px;
+  overflow: hidden;
 }
 
 .recipeDetails h1 {
@@ -73,7 +74,7 @@
 }
 
 .recipeDetails .linkText {
-  margin: 25px 5% 25px 12.5px;
+  margin: 50px 5% 5px 12.5px;
   float: right;
 }
 

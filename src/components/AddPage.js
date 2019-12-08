@@ -3,6 +3,7 @@ import "../styles/AddPage.css";
 import Loading from "./Loading";
 import "../styles/Loading.css";
 import SearchResult from "./SearchResult";
+import RecipeDetails from "./RecipeDetails";
 
 export default class AddPage extends React.Component {
   constructor(props) {
@@ -10,7 +11,9 @@ export default class AddPage extends React.Component {
     this.state = {
       results: [],
       loading: false,
-      userHasSearched: false
+      userHasSearched: false,
+      details: {},
+      detailLink: ""
     };
   }
 
@@ -26,6 +29,12 @@ export default class AddPage extends React.Component {
     let results = json.hits;
     console.log(results);
     this.setState({ results, loading: false, userHasSearched: true });
+  };
+
+  viewDetails = url => {
+    url === this.state.detailLink
+      ? this.setState({ detailView: false, detailLink: "" })
+      : this.setState({ detailView: true, detailLink: url });
   };
 
   render() {
@@ -44,13 +53,8 @@ export default class AddPage extends React.Component {
           ></input>
           <input type="submit" className="searchButton" value="Search"></input>
         </form>
-        <div className="searchResults">
-          <SearchResult name="Pizza Dough" author="Martha Stewart" symbol="+" />
-          <SearchResult name="Pizza Sauce" author="Lottie + Doof" symbol="+" />
-          <SearchResult name="Pizza Pie" author="Saveur" symbol="+" />
-        </div>
 
-        {/* {this.state.loading ? (
+        {this.state.loading ? (
           <Loading />
         ) : (
           <div className="searchResults">
@@ -59,15 +63,32 @@ export default class AddPage extends React.Component {
             ) : (
               this.state.results.map(result => {
                 return (
-                  <SearchResult
-                    key={result.recipe.uri}
-                    name={result.recipe.label}
-                  />
+                  <React.Fragment key={result.recipe.uri}>
+                    <SearchResult
+                      name={result.recipe.label}
+                      author={result.recipe.source}
+                      symbol="+"
+                      viewDetails={() => this.viewDetails(result.recipe.url)}
+                    />
+                    {this.state.detailView &&
+                    this.state.detailLink === result.recipe.url ? (
+                      <RecipeDetails
+                        title={result.recipe.label}
+                        author={result.recipe.source}
+                        servings={result.recipe.yield}
+                        ingredients={result.recipe.ingredientLines}
+                        directions={[]}
+                        link={result.recipe.url}
+                      ></RecipeDetails>
+                    ) : (
+                      console.log("bye")
+                    )}
+                  </React.Fragment>
                 );
               })
             )}
           </div>
-        )} */}
+        )}
       </div>
     );
   }

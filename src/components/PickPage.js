@@ -35,6 +35,7 @@ export default class PickPage extends React.Component {
             "transfer to a semolina-dusted pizza peel.",
             "Spread 1⁄2 cup sauce over dough, and distribute a quarter each of the cheese and basil leaves"
           ]}
+          link="https://www.saveur.com/article/Recipes/Pizza-Margherita-Tomato-Basil-and-Mozzarella-Pizza/"
         ></RecipeDetails>
       </div>
     );
