@@ -14,7 +14,7 @@ import PageNotFound from "./components/PageNotFound";
 
 export default function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <ul className="navbar">
         <li className="left-nav">
           <NavLink to="/add">Add Recipe</NavLink>

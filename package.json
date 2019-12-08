@@ -1,7 +1,7 @@
 {
   "name": "final-project",
   "version": "0.1.0",
-  "homepage": "https://selectfor.me",
+  "homepage": "https://cooking-companion.com/",
   "private": true,
   "dependencies": {
     "react": "^16.11.0",
