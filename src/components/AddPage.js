@@ -4,6 +4,13 @@ import Loading from "./Loading";
 import "../styles/Loading.css";
 import SearchResult from "./SearchResult";
 import RecipeDetails from "./RecipeDetails";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  NavLink,
+  Redirect
+} from "react-router-dom";
 
 export default class AddPage extends React.Component {
   constructor(props) {
@@ -28,6 +35,7 @@ export default class AddPage extends React.Component {
     let json = await response.json();
     let results = json.hits;
     console.log(results);
+    this.props.history.push(`/add/${searchTerm}`);
     this.setState({ results, loading: false, userHasSearched: true });
   };
 

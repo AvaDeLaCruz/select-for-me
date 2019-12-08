@@ -1,16 +1,15 @@
 .recipeCard {
-  margin-top: 25px;
+  margin-top: 5px;
   border: 1px solid black;
   border-radius: 5px;
   width: 95%;
   min-width: 200px;
-  padding: 12.5px;
+  padding: 8px;
   overflow: hidden;
 }
 
 .recipeDetails h1 {
-  margin-top: 25px;
-  margin-left: 12.5px;
+  margin: 25px 0 0 12.5px;
   font-size: 25px;
   display: inline-block;
 }
@@ -30,8 +29,9 @@
 }
 
 .recipeDetails .resultAuthor {
-  padding-left: 12.5px;
+  margin-left: 12.5px;
   padding-bottom: 12.5px;
+  padding-right: 0;
   font-size: 16px;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .recipeDetails .secondCol {
-  padding: 0 50px;
+  padding: 0 0 0 50px;
   vertical-align: top;
 }
 

@@ -35,6 +35,7 @@ export default function App() {
       <Switch>
         <Route path="/" exact={true} component={HomePage}></Route>
         <Route path="/add" component={AddPage}></Route>
+        <Route path="/add/:id" component={AddPage}></Route>
         <Route path="/pick" component={PickPage}></Route>
         <Route path="/book" component={BookPage}></Route>
         <Route component={PageNotFound}></Route>

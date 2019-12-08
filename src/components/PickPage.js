@@ -22,7 +22,7 @@ export default class PickPage extends React.Component {
   render() {
     return (
       <div className="pickPage">
-        <h1>
+        <h1 className="pageTitle">
           <mark>Recipe Generator</mark>
         </h1>
         <h2>Refresh the page to randomly generate a new recipe</h2>
