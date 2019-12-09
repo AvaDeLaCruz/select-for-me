@@ -1,83 +1,94 @@
 .addPage {
-  color: black;
-  font-family: "Poppins", sans-serif;
-  text-align: left;
-  height: 92.5vh;
-  margin: 0;
-  padding: 0 100px;
+	color: black;
+	font-family: "Poppins", sans-serif;
+	text-align: left;
+	height: 92.5vh;
+	margin: 0;
+	padding: 0 100px;
 }
 
 .addPage h1 {
-  color: black;
-  font-size: 4vh;
-  margin: 50px auto 0 auto;
-  font-style: italic;
+	color: black;
+	font-size: 4vh;
+	margin: 50px auto 0 auto;
+	font-style: italic;
 }
 
 .addPage mark {
-  background-color: #c1e6ec;
+	background-color: #c1e6ec;
 }
 
 .addPage h2 {
-  color: black;
-  font-size: 2vh;
-  margin-top: 0;
-  margin-bottom: 25px;
-  font-weight: 100;
+	color: black;
+	font-size: 2vh;
+	margin-top: 0;
+	margin-bottom: 25px;
+	font-weight: 100;
 }
-/* 
-.addPage .searchForm {
-  padding-top: 25px;
-} */
 
 .addPage .searchBar {
-  -webkit-appearance: none;
-  width: 80%;
-  height: 50px;
-  box-sizing: border-box;
-  font-size: 2vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  padding: 0 10px;
-  border: 2px solid black;
-  border-radius: 5px;
-  color: black;
-  background: white;
-  margin: 0 2.5px;
+	-webkit-appearance: none;
+	width: 80%;
+	height: 50px;
+	box-sizing: border-box;
+	font-size: 2vh;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+		Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	padding: 0 10px;
+	border: 2px solid black;
+	border-radius: 5px;
+	color: black;
+	background: white;
+	margin: 0 2.5px;
 }
 
 ::placeholder {
-  color: #757575;
+	color: #757575;
 }
 
 .addPage .searchButton {
-  -webkit-appearance: none;
-  font-size: 2vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  background-color: black;
-  color: white;
-  font-weight: 600;
-  width: 15%;
-  height: 50px;
-  border: 0;
-  /* border: 2px solid black; */
-  border-radius: 5px;
-  padding: 1px 10px;
-  margin: 0 2.5px;
+	-webkit-appearance: none;
+	font-size: 2vh;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+		Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	background-color: black;
+	color: white;
+	font-weight: 600;
+	width: 15%;
+	height: 50px;
+	border: 0;
+	/* border: 2px solid black; */
+	border-radius: 5px;
+	padding: 1px 10px;
+	margin: 0 2.5px;
 }
 
 .searchButton:hover {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 @media only screen and (max-device-width: 1024px) {
-  .addPage {
-    padding: 0 25px;
-  }
+	.addPage {
+		padding: 0 25px;
+	}
+	.addPage .searchButton {
+		width: 17.5%;
+	}
+	.addPage .searchBar {
+		width: 77.5%;
+	}
+}
+
+@media only screen and (max-device-width: 414px) {
+	.addPage .searchButton {
+		width: 20%;
+	}
+	.addPage .searchBar {
+		width: 75%;
+	}
 }
 
 .searchResults {
-  margin-top: 75px;
-  margin-bottom: 25px;
+	margin-top: 75px;
+	margin-bottom: 25px;
 }
