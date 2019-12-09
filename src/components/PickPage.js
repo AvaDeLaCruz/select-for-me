@@ -17,12 +17,10 @@ export default class PickPage extends React.Component {
 
 	componentDidMount = async () => {
 		let url = `${API}/recipes/random`;
-		console.log(url);
 		let response = await fetch(url);
 		let randomRecipe = await response.json();
 		console.log(randomRecipe);
 		this.setState({ randomRecipe, loading: false });
-		console.log(this.state.randomRecipe.ingredients);
 	};
 
 	render() {

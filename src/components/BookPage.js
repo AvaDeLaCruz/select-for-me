@@ -17,13 +17,18 @@ export default class BookPage extends React.Component {
 		};
 	}
 
-	async componentDidMount() {
-		this.setState({ loading: true });
+	async retrieveFavorites() {
 		let url = `${API}/recipes`;
 		console.log(url);
 		let response = await fetch(url);
 		let favorites = await response.json();
 		console.log(favorites);
+		return favorites;
+	}
+
+	async componentDidMount() {
+		this.setState({ loading: true });
+		let favorites = await this.retrieveFavorites();
 		this.setState({ favorites, loading: false });
 	}
 
@@ -33,9 +38,19 @@ export default class BookPage extends React.Component {
 			: this.setState({ detailView: true, detailLink: url });
 	};
 
+	unfavorite = async (title, author) => {
+		let url = `${API}/recipes/${author}/${title}`;
+		const response = await fetch(url, { method: "DELETE" });
+		console.log(response.status);
+		let favorites = await this.retrieveFavorites();
+		this.setState({ favorites });
+	};
+
 	render() {
 		return (
 			<div className="bookPage">
+				<span id="notif">This is a notification.</span>
+
 				<h1>
 					<mark>Recipe Book</mark>
 				</h1>
@@ -58,6 +73,9 @@ export default class BookPage extends React.Component {
 											author={favorite.author}
 											symbol="-"
 											viewDetails={() => this.viewDetails(favorite.url)}
+											favoriteFunction={() =>
+												this.unfavorite(favorite.title, favorite.author)
+											}
 										/>
 										{this.state.detailView &&
 										this.state.detailLink === favorite.url ? (
