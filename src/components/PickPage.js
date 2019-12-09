@@ -18,9 +18,13 @@ export default class PickPage extends React.Component {
 	componentDidMount = async () => {
 		let url = `${API}/recipes/random`;
 		let response = await fetch(url);
-		let randomRecipe = await response.json();
-		console.log(randomRecipe);
-		this.setState({ randomRecipe, loading: false });
+		if (response.status === 404) {
+			this.setState({ loading: false });
+		} else {
+			let randomRecipe = await response.json();
+			console.log(randomRecipe);
+			this.setState({ randomRecipe, loading: false });
+		}
 	};
 
 	render() {
@@ -32,6 +36,11 @@ export default class PickPage extends React.Component {
 				<h2>Refresh the page to randomly generate a new recipe</h2>
 				{this.state.loading ? (
 					<Loading />
+				) : Object.entries(this.state.randomRecipe).length === 0 ? (
+					<p>
+						You don't have any saved recipes. Add some recipes to your recipe
+						book to use this feature.
+					</p>
 				) : (
 					<RecipeDetails
 						title={this.state.randomRecipe.title}

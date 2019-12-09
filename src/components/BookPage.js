@@ -63,7 +63,10 @@ export default class BookPage extends React.Component {
 				) : (
 					<div className="searchResults">
 						{this.state.favorites.length === 0 ? (
-							<p>No favorites found.</p>
+							<p>
+								No favorites found. Add some recipes to your recipe book using
+								the Add Recipe page.
+							</p>
 						) : (
 							this.state.favorites.map(favorite => {
 								return (
