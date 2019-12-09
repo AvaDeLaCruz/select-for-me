@@ -1,33 +1,30 @@
 .pickPage {
-  color: black;
-  font-family: "Poppins", sans-serif;
-  text-align: left;
-  height: 92.5vh;
-  margin: 0;
-  padding: 0 100px;
-}
-
-.pickPage .pageTitle {
-  color: black;
-  font-size: 4vh;
-  margin: 50px auto 0 auto;
-  font-style: italic;
+	color: black;
+	font-family: "Poppins", sans-serif;
+	text-align: left;
+	height: 92.5vh;
+	margin: 0;
+	padding: 0 100px;
 }
 
 .pickPage mark {
-  background-color: #c1e6ec;
+	background-color: #c1e6ec;
 }
 
 .pickPage h2 {
-  color: black;
-  font-size: 2vh;
-  margin-top: 0;
-  font-weight: 100;
-  margin-bottom: 25px;
+	color: black;
+	font-size: 2vh;
+	margin-top: 0;
+	font-weight: 100;
+	margin-bottom: 25px;
+}
+
+.pickPage .recipeCard {
+	margin-top: 50px;
 }
 
 @media only screen and (max-device-width: 1024px) {
-  .pickPage {
-    padding: 0 25px;
-  }
+	.pickPage {
+		padding: 0 25px;
+	}
 }

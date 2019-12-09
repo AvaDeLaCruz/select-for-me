@@ -9,9 +9,10 @@
 }
 
 .recipeDetails h1 {
-	margin: 25px 0 0 12.5px;
+	margin: 10px 0 0 12.5px;
 	font-size: 25px;
 	display: inline-block;
+	font-style: italic;
 }
 
 .recipeDetails h2 {
@@ -75,7 +76,7 @@
 }
 
 .recipeDetails .linkText {
-	margin: 50px 15px 5px 12.5px;
+	margin: 25px 15px 5px 12.5px;
 	width: 95%;
 	text-align: right;
 }
