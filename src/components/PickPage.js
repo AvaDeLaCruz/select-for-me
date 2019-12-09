@@ -45,6 +45,7 @@ export default class PickPage extends React.Component {
 					<RecipeDetails
 						title={this.state.randomRecipe.title}
 						author={this.state.randomRecipe.author}
+						servings={this.state.randomRecipe.servings}
 						ingredients={this.state.randomRecipe.ingredients}
 						directions={this.state.randomRecipe.directions}
 						link={this.state.randomRecipe.url}
