@@ -108,7 +108,7 @@ export default class BookPage extends React.Component {
 												link={favorite.url}
 											></RecipeDetails>
 										) : (
-											console.log("bye")
+											undefined
 										)}
 									</React.Fragment>
 								);

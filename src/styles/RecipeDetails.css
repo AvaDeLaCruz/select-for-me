@@ -1,88 +1,100 @@
 .recipeCard {
-  margin-top: 5px;
-  border: 1px solid black;
-  border-radius: 5px;
-  width: 95%;
-  min-width: 200px;
-  padding: 8px;
-  overflow: hidden;
+	margin-top: 5px;
+	border: 1px solid black;
+	border-radius: 5px;
+	width: 95%;
+	min-width: 200px;
+	padding: 8px;
+	overflow: hidden;
 }
 
 .recipeDetails h1 {
-  margin: 25px 0 0 12.5px;
-  font-size: 25px;
-  display: inline-block;
+	margin: 25px 0 0 12.5px;
+	font-size: 25px;
+	display: inline-block;
 }
 
 .recipeDetails h2 {
-  margin-top: 25px;
-  margin-left: 12.5px;
-  margin-bottom: 5px;
-  font-weight: 400;
-  font-size: 20px;
+	margin-top: 25px;
+	margin-left: 12.5px;
+	margin-bottom: 5px;
+	font-weight: 400;
+	font-size: 20px;
 }
 
 .recipeDetails .servings {
-  float: right;
-  margin-right: 25px;
-  margin-top: 5px;
+	float: right;
+	margin-right: 25px;
+	margin-top: 5px;
 }
 
 .recipeDetails .resultAuthor {
-  margin-left: 12.5px;
-  padding-bottom: 12.5px;
-  padding-right: 0;
-  font-size: 16px;
+	margin-left: 12.5px;
+	padding-bottom: 12.5px;
+	padding-right: 0;
+	font-size: 16px;
 }
 
 .recipeDetails hr {
-  margin-top: 5px;
+	margin-top: 5px;
 }
 
 .recipeDetails .ingredientsList {
-  margin-top: 5px;
+	margin-top: 5px;
 }
 
 .recipeDetails .directions,
 .recipeDetails p {
-  margin-top: 5px;
-  margin-left: 40px;
+	margin-top: 5px;
+	margin-left: 40px;
 }
 
-.recipeDetails table {
-  margin: 25px 0;
-  width: 100%;
+.ingredientsAndDirections {
+	margin: 25px 0;
+	display: flex;
+	flex-direction: row;
 }
 
 .recipeDetails h2 {
-  margin-top: 1px;
-  font-style: italic;
+	margin-top: 1px;
+	font-style: italic;
 }
 
 .recipeDetails .firstCol {
-  width: 30%;
-  padding-right: 25px;
-  background-color: #e8f3f5;
-  border: 1px solid #e8f3f5;
-  border-radius: 5px;
-  padding: 25px;
+	width: 30%;
+	background-color: #e8f3f5;
+	border: 1px solid #e8f3f5;
+	border-radius: 5px;
+	padding: 25px;
+	margin-left: 25px;
 }
 
 .recipeDetails .secondCol {
-  padding: 0 0 0 50px;
-  vertical-align: top;
+	padding: 25px 0 0 25px;
+	vertical-align: top;
 }
 
 .recipeDetails .linkText {
-  margin: 50px 5% 5px 12.5px;
-  float: right;
+	margin: 50px 5% 5px 12.5px;
+	width: 95%;
+	text-align: right;
+	/* float: right; */
 }
 
 .recipeDetails a {
-  color: #72a7af;
-  padding-left: 5px;
+	color: #72a7af;
+	padding-left: 5px;
 }
 
 .recipeDetails li {
-  margin-top: 5px;
+	margin-top: 5px;
+}
+
+@media only screen and (max-device-width: 1024px) {
+	.ingredientsAndDirections {
+		flex-direction: column;
+	}
+	.recipeDetails .firstCol {
+		width: 85%;
+	}
 }
