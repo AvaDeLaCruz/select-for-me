@@ -3,7 +3,7 @@ import "../styles/SearchResult.css";
 
 export default function SearchResult(props) {
 	return (
-		<div className="searchResult">
+		<div className="searchResult" onClick={props.onClick}>
 			{props.name}
 			<button
 				className="favoriteButton"

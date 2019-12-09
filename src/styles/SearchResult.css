@@ -1,35 +1,31 @@
 .searchResult {
-  padding: 15px 0 15px 15px;
-  margin: 10px 0;
-  width: 95%;
-  border-radius: 5px;
-  border: 1px solid black;
-  color: black;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.searchResult:hover {
-  background-color: #c1e6ec;
+	padding: 15px 0 15px 15px;
+	margin: 10px 0;
+	width: 95%;
+	border-radius: 5px;
+	border: 1px solid black;
+	color: black;
+	font-size: 20px;
+	font-weight: 400;
 }
 
 .resultAuthor {
-  padding-right: 25px;
-  font-size: 12.5px;
-  font-weight: 100;
+	padding-right: 25px;
+	font-size: 12.5px;
+	font-weight: 100;
 }
 
 .favoriteButton,
 .detailsButton {
-  float: right;
-  margin-right: 25px;
-  margin-top: 10px;
-  font-size: 25px;
-  border: 0;
-  background-color: inherit;
+	float: right;
+	margin-right: 25px;
+	margin-top: 10px;
+	font-size: 25px;
+	border: 0;
+	background-color: inherit;
 }
 
 .favoriteButton:hover,
 .detailsButton:hover {
-  cursor: pointer;
+	cursor: pointer;
 }

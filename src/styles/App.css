@@ -60,9 +60,25 @@ footer {
 
 #notif {
 	float: right;
-	background-color: #184965;
+	border: 1px solid white;
+	background-color: #6196af;
+	border-radius: 5px;
 	font-style: italic;
 	color: white;
-	padding: 10px;
-	visibility: hidden;
+	padding: 10px 15px;
+	opacity: 0;
+	position: fixed;
+	right: 50px;
+	-webkit-transition: opacity 0.5s ease-in-out;
+	-moz-transition: opacity 0.5s ease-in-out;
+	-ms-transition: opacity 0.5s ease-in-out;
+	-o-transition: opacity 0.5s ease-in-out;
+}
+
+#notif.visible {
+	opacity: 1;
+	-webkit-transition: opacity 0.5s ease-in-out;
+	-moz-transition: opacity 0.5s ease-in-out;
+	-ms-transition: opacity 0.5s ease-in-out;
+	-o-transition: opacity 0.5s ease-in-out;
 }

@@ -41,15 +41,29 @@ export default class BookPage extends React.Component {
 	unfavorite = async (title, author) => {
 		let url = `${API}/recipes/${author}/${title}`;
 		const response = await fetch(url, { method: "DELETE" });
-		console.log(response.status);
-		let favorites = await this.retrieveFavorites();
-		this.setState({ favorites });
+		document.getElementById("notif").classList.toggle("visible");
+		if (response.ok) {
+			document.getElementById("notif").innerText =
+				"Recipe successfully removed from favorites. ";
+			let favorites = await this.retrieveFavorites();
+			this.setState({ favorites });
+		} else {
+			document.getElementById("notif").innerText =
+				"Error: Could not unfavorite this recipe.";
+		}
+		setTimeout(() => {
+			document.getElementById("notif").classList.toggle("visible");
+		}, 2500);
+	};
+
+	sayHi = () => {
+		console.log("hi");
 	};
 
 	render() {
 		return (
 			<div className="bookPage">
-				<span id="notif">This is a notification.</span>
+				<span id="notif"></span>
 
 				<h1>
 					<mark>Recipe Book</mark>
@@ -78,6 +92,9 @@ export default class BookPage extends React.Component {
 											viewDetails={() => this.viewDetails(favorite.url)}
 											favoriteFunction={() =>
 												this.unfavorite(favorite.title, favorite.author)
+											}
+											onClick={() =>
+												this.sayHi(favorite.title, favorite.author)
 											}
 										/>
 										{this.state.detailView &&

@@ -12,7 +12,8 @@ export default class AddPage extends React.Component {
 			results: [],
 			loading: false,
 			userHasSearched: false,
-			detailLink: ""
+			detailLink: "",
+			db: []
 		};
 	}
 
@@ -37,9 +38,47 @@ export default class AddPage extends React.Component {
 			: this.setState({ detailView: true, detailLink: url });
 	};
 
+	favorite = async (title, author, servings, ingredients, directions, url) => {
+		let data = {
+			title: title,
+			author: author,
+			servings: servings,
+			ingredients: ingredients,
+			directions: directions,
+			url: url
+		};
+
+		let apiURL = "https://cooking-companion-api.herokuapp.com/recipes";
+
+		const response = await fetch(apiURL, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(data)
+		});
+
+		document.getElementById("notif").classList.toggle("visible");
+
+		if (response.ok) {
+			let json = await response.json();
+			console.log(json);
+			document.getElementById("notif").innerText =
+				"Recipe successfully added to favorites. ";
+		} else {
+			document.getElementById("notif").innerText =
+				"Error: Could not add recipe to favorites. ";
+		}
+
+		setTimeout(() => {
+			document.getElementById("notif").classList.toggle("visible");
+		}, 2500);
+	};
+
 	render() {
 		return (
 			<div className="addPage">
+				<span id="notif"></span>
 				<h1>
 					<mark>Add a Recipe</mark>
 				</h1>
@@ -53,7 +92,6 @@ export default class AddPage extends React.Component {
 					></input>
 					<input type="submit" className="searchButton" value="Search"></input>
 				</form>
-
 				{this.state.loading ? (
 					<Loading />
 				) : (
@@ -69,6 +107,16 @@ export default class AddPage extends React.Component {
 											author={result.recipe.source}
 											symbol="+"
 											viewDetails={() => this.viewDetails(result.recipe.url)}
+											favoriteFunction={() =>
+												this.favorite(
+													result.recipe.label,
+													result.recipe.source,
+													result.recipe.yield,
+													result.recipe.ingredientLines,
+													[],
+													result.recipe.url
+												)
+											}
 										/>
 										{this.state.detailView &&
 										this.state.detailLink === result.recipe.url ? (
@@ -81,7 +129,7 @@ export default class AddPage extends React.Component {
 												link={result.recipe.url}
 											></RecipeDetails>
 										) : (
-											console.log("bye")
+											undefined
 										)}
 									</React.Fragment>
 								);

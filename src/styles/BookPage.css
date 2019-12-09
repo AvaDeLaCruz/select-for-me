@@ -1,32 +1,37 @@
 .bookPage {
-  color: black;
-  font-family: "Poppins", sans-serif;
-  text-align: left;
-  height: 92.5vh;
-  margin: 0;
-  padding: 0 100px;
+	color: black;
+	font-family: "Poppins", sans-serif;
+	text-align: left;
+	height: 92.5vh;
+	margin: 0;
+	padding: 0 100px;
 }
 
 .bookPage h1 {
-  color: black;
-  font-size: 4vh;
-  margin: 50px auto 0 auto;
-  font-style: italic;
+	color: black;
+	font-size: 4vh;
+	margin: 50px auto 0 auto;
+	font-style: italic;
 }
 
 .bookPage mark {
-  background-color: #c1e6ec;
+	background-color: #c1e6ec;
 }
 
 .bookPage h2 {
-  color: black;
-  font-size: 2vh;
-  margin-top: 0;
-  font-weight: 100;
+	color: black;
+	font-size: 2vh;
+	margin-top: 0;
+	font-weight: 100;
+}
+
+.bookPage .searchResult:hover {
+	background-color: #c1e6ec;
+	cursor: pointer;
 }
 
 @media only screen and (max-device-width: 1024px) {
-  .bookPage {
-    padding: 0 25px;
-  }
+	.bookPage {
+		padding: 0 25px;
+	}
 }
