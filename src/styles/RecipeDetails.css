@@ -66,7 +66,7 @@
 	border: 1px solid #e8f3f5;
 	border-radius: 5px;
 	padding: 25px;
-	margin-left: 25px;
+	margin: 0 25px;
 }
 
 .recipeDetails .secondCol {
@@ -75,10 +75,9 @@
 }
 
 .recipeDetails .linkText {
-	margin: 50px 5% 5px 12.5px;
+	margin: 50px 15px 5px 12.5px;
 	width: 95%;
 	text-align: right;
-	/* float: right; */
 }
 
 .recipeDetails a {
@@ -96,5 +95,11 @@
 	}
 	.recipeDetails .firstCol {
 		width: 85%;
+	}
+}
+
+@media only screen and (max-device-width: 414px) {
+	.recipeDetails .firstCol {
+		margin-left: 0;
 	}
 }
