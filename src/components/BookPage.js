@@ -56,8 +56,8 @@ export default class BookPage extends React.Component {
 		}, 2500);
 	};
 
-	sayHi = () => {
-		console.log("hi");
+	sayHi = (title, author) => {
+		console.log("hi from " + title + " and " + author);
 	};
 
 	render() {
@@ -106,6 +106,7 @@ export default class BookPage extends React.Component {
 												ingredients={favorite.ingredients}
 												directions={favorite.directions}
 												link={favorite.url}
+												canEdit={true}
 											></RecipeDetails>
 										) : (
 											undefined

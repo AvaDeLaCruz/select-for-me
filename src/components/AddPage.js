@@ -25,11 +25,26 @@ export default class AddPage extends React.Component {
 			"https://api.edamam.com/search?app_id=6a7eb714&app_key=2a86ad87280db39e7fb0fadd79840ecf&q=" +
 			searchTerm;
 		let response = await fetch(url);
-		let json = await response.json();
-		let results = json.hits;
-		console.log(results);
-		this.props.history.push(`/add/${searchTerm}`);
-		this.setState({ results, loading: false, userHasSearched: true });
+
+		if (response.ok) {
+			console.log("good");
+
+			let json = await response.json();
+			let results = json.hits;
+			console.log(results);
+			this.props.history.push(`/add/${searchTerm}`);
+			this.setState({ results, userHasSearched: true });
+		} else {
+			console.log("other error");
+			document.getElementById("notif").classList.toggle("visible");
+			document.getElementById("notif").innerText =
+				"Error: Could not complete search.";
+			setTimeout(() => {
+				document.getElementById("notif").classList.toggle("visible");
+			}, 2500);
+		}
+
+		this.setState({ loading: false });
 	};
 
 	viewDetails = url => {
@@ -127,6 +142,7 @@ export default class AddPage extends React.Component {
 												ingredients={result.recipe.ingredientLines}
 												directions={[]}
 												link={result.recipe.url}
+												canEdit={false}
 											></RecipeDetails>
 										) : (
 											undefined

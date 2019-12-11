@@ -1,5 +1,5 @@
 .searchResult {
-	padding: 15px 0 15px 15px;
+	padding: 15px 0 10px 15px;
 	margin: 10px 0;
 	width: 95%;
 	border-radius: 5px;
@@ -17,9 +17,10 @@
 }
 
 .favoriteButton,
-.detailsButton {
+.detailsButton,
+.editButton {
 	float: right;
-	margin-right: 25px;
+	margin-right: 20px;
 	margin-top: 0;
 	font-size: 25px;
 	border: 0;
@@ -29,4 +30,12 @@
 .favoriteButton:hover,
 .detailsButton:hover {
 	cursor: pointer;
+}
+
+button img {
+	width: 25px;
+}
+
+.detailsButton img {
+	width: 28px;
 }

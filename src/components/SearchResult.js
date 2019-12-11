@@ -13,14 +13,18 @@ export default function SearchResult(props) {
 					title="un/favorite recipe"
 					onClick={props.favoriteFunction}
 				>
-					{props.symbol}
+					<img src={require("../images/trash.png")}></img>
+				</button>
+
+				<button className="editButton">
+					<img src={require("../images/edit.png")}></img>
 				</button>
 				<button
 					className="detailsButton"
 					title="more details"
 					onClick={props.viewDetails}
 				>
-					∙∙∙
+					<img src={require("../images/details.png")}></img>
 				</button>
 			</div>
 		</div>

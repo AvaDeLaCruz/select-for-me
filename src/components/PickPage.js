@@ -49,6 +49,7 @@ export default class PickPage extends React.Component {
 						ingredients={this.state.randomRecipe.ingredients}
 						directions={this.state.randomRecipe.directions}
 						link={this.state.randomRecipe.url}
+						canEdit={true}
 					/>
 				)}
 			</div>

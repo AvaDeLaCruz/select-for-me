@@ -6,9 +6,13 @@ export default function RecipeDetails(props) {
 		<div className="recipeDetails">
 			<div className="recipeCard">
 				<span className="servings">Servings: {props.servings}</span>
+
 				<h1>{props.title}</h1>
+
 				<div className="resultAuthor">{props.author}</div>
+
 				<hr></hr>
+
 				<div className="ingredientsAndDirections">
 					<div className="firstCol">
 						<h2>Ingredients</h2>
@@ -22,6 +26,7 @@ export default function RecipeDetails(props) {
 							</ul>
 						)}
 					</div>
+
 					<div className="secondCol">
 						<h2>Directions</h2>
 						{props.directions.length === 0 ? (
@@ -35,6 +40,7 @@ export default function RecipeDetails(props) {
 						)}
 					</div>
 				</div>
+
 				<p className="linkText">
 					{" "}
 					Link:
