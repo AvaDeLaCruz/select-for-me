@@ -120,7 +120,7 @@ export default class AddPage extends React.Component {
 										<SearchResult
 											name={result.recipe.label}
 											author={result.recipe.source}
-											symbol="+"
+											favorited={false}
 											viewDetails={() => this.viewDetails(result.recipe.url)}
 											favoriteFunction={() =>
 												this.favorite(
@@ -132,6 +132,7 @@ export default class AddPage extends React.Component {
 													result.recipe.url
 												)
 											}
+											canEdit={false}
 										/>
 										{this.state.detailView &&
 										this.state.detailLink === result.recipe.url ? (

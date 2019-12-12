@@ -19,7 +19,6 @@ export default class BookPage extends React.Component {
 
 	async retrieveFavorites() {
 		let url = `${API}/recipes`;
-		console.log(url);
 		let response = await fetch(url);
 		let favorites = await response.json();
 		console.log(favorites);
@@ -41,23 +40,26 @@ export default class BookPage extends React.Component {
 	unfavorite = async (title, author) => {
 		let url = `${API}/recipes/${author}/${title}`;
 		const response = await fetch(url, { method: "DELETE" });
-		document.getElementById("notif").classList.toggle("visible");
 		if (response.ok) {
-			document.getElementById("notif").innerText =
-				"Recipe successfully removed from favorites. ";
-			let favorites = await this.retrieveFavorites();
-			this.setState({ favorites });
+			this.showNotification("Recipe successfully removed from favorites.");
+			this.reloadFavorites();
 		} else {
-			document.getElementById("notif").innerText =
-				"Error: Could not unfavorite this recipe.";
+			this.showNotification("Error: Could not unfavorite this recipe.");
 		}
+	};
+
+	reloadFavorites = async () => {
+		console.log("reloading favorites");
+		let favorites = await this.retrieveFavorites();
+		this.setState({ favorites });
+	};
+
+	showNotification = message => {
+		document.getElementById("notif").classList.toggle("visible");
+		document.getElementById("notif").innerText = message;
 		setTimeout(() => {
 			document.getElementById("notif").classList.toggle("visible");
 		}, 2500);
-	};
-
-	sayHi = (title, author) => {
-		console.log("hi from " + title + " and " + author);
 	};
 
 	render() {
@@ -88,14 +90,14 @@ export default class BookPage extends React.Component {
 										<SearchResult
 											name={favorite.title}
 											author={favorite.author}
-											symbol="-"
+											favorited={true}
 											viewDetails={() => this.viewDetails(favorite.url)}
 											favoriteFunction={() =>
 												this.unfavorite(favorite.title, favorite.author)
 											}
-											onClick={() =>
-												this.sayHi(favorite.title, favorite.author)
-											}
+											canEdit={true}
+											showNotification={this.showNotification}
+											reloadFavorites={this.reloadFavorites}
 										/>
 										{this.state.detailView &&
 										this.state.detailLink === favorite.url ? (
@@ -107,7 +109,7 @@ export default class BookPage extends React.Component {
 												directions={favorite.directions}
 												link={favorite.url}
 												canEdit={true}
-											></RecipeDetails>
+											/>
 										) : (
 											undefined
 										)}
