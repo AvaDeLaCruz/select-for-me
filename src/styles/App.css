@@ -91,6 +91,14 @@ footer {
 	-o-transition: opacity 0.5s ease-in-out;
 }
 
+footer a:link {
+	color: #6196af;
+}
+
+footer a:visited {
+	color: #2e5466;
+}
+
 @media only screen and (max-device-width: 1024px) {
 	h1 {
 		font-size: 3vh;
