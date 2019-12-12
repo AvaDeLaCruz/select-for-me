@@ -4,6 +4,7 @@ import RecipeDetails from "./RecipeDetails";
 import Loading from "./Loading";
 import "../styles/BookPage.css";
 import "../styles/Loading.css";
+import DocumentTitle from "react-document-title";
 
 const API = "https://cooking-companion-api.herokuapp.com";
 
@@ -64,62 +65,64 @@ export default class BookPage extends React.Component {
 
 	render() {
 		return (
-			<div className="bookPage">
-				<span id="notif"></span>
+			<DocumentTitle title="Recipe Book">
+				<div className="bookPage">
+					<span id="notif"></span>
 
-				<h1>
-					<mark>Recipe Book</mark>
-				</h1>
-				<h2>
-					Browse through your saved recipes, edit recipes, or delete recipes
-				</h2>
+					<h1>
+						<mark>Recipe Book</mark>
+					</h1>
+					<h2>
+						Browse through your saved recipes, edit recipes, or delete recipes
+					</h2>
 
-				{this.state.loading ? (
-					<Loading />
-				) : (
-					<div className="searchResults">
-						{this.state.favorites.length === 0 ? (
-							<p>
-								No favorites found. Add some recipes to your recipe book using
-								the Add Recipe page.
-							</p>
-						) : (
-							this.state.favorites.map(favorite => {
-								return (
-									<React.Fragment key={favorite.url}>
-										<SearchResult
-											name={favorite.title}
-											author={favorite.author}
-											favorited={true}
-											viewDetails={() => this.viewDetails(favorite.url)}
-											favoriteFunction={() =>
-												this.unfavorite(favorite.title, favorite.author)
-											}
-											canEdit={true}
-											showNotification={this.showNotification}
-											reloadFavorites={this.reloadFavorites}
-										/>
-										{this.state.detailView &&
-										this.state.detailLink === favorite.url ? (
-											<RecipeDetails
-												title={favorite.title}
+					{this.state.loading ? (
+						<Loading />
+					) : (
+						<div className="searchResults">
+							{this.state.favorites.length === 0 ? (
+								<p>
+									No favorites found. Add some recipes to your recipe book using
+									the Add Recipe page.
+								</p>
+							) : (
+								this.state.favorites.map(favorite => {
+									return (
+										<React.Fragment key={favorite.url}>
+											<SearchResult
+												name={favorite.title}
 												author={favorite.author}
-												servings={favorite.servings}
-												ingredients={favorite.ingredients}
-												directions={favorite.directions}
-												link={favorite.url}
+												favorited={true}
+												viewDetails={() => this.viewDetails(favorite.url)}
+												favoriteFunction={() =>
+													this.unfavorite(favorite.title, favorite.author)
+												}
 												canEdit={true}
+												showNotification={this.showNotification}
+												reloadFavorites={this.reloadFavorites}
 											/>
-										) : (
-											undefined
-										)}
-									</React.Fragment>
-								);
-							})
-						)}
-					</div>
-				)}
-			</div>
+											{this.state.detailView &&
+											this.state.detailLink === favorite.url ? (
+												<RecipeDetails
+													title={favorite.title}
+													author={favorite.author}
+													servings={favorite.servings}
+													ingredients={favorite.ingredients}
+													directions={favorite.directions}
+													link={favorite.url}
+													canEdit={true}
+												/>
+											) : (
+												undefined
+											)}
+										</React.Fragment>
+									);
+								})
+							)}
+						</div>
+					)}
+				</div>
+			</DocumentTitle>
 		);
 	}
 }

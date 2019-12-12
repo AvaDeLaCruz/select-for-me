@@ -4,6 +4,7 @@ import Loading from "./Loading";
 import "../styles/Loading.css";
 import SearchResult from "./SearchResult";
 import RecipeDetails from "./RecipeDetails";
+import DocumentTitle from "react-document-title";
 
 export default class AddPage extends React.Component {
 	constructor(props) {
@@ -92,69 +93,75 @@ export default class AddPage extends React.Component {
 
 	render() {
 		return (
-			<div className="addPage">
-				<span id="notif"></span>
-				<h1>
-					<mark>Add a Recipe</mark>
-				</h1>
-				<h2>Type a food name in the box below to search for a recipe</h2>
-				<form className="searchForm" onSubmit={this.handleSearch}>
-					<input
-						type="search"
-						className="searchBar"
-						placeholder="Search for pizza, pasta, or other recipes..."
-						name="searchTerm"
-					></input>
-					<input type="submit" className="searchButton" value="Search"></input>
-				</form>
-				{this.state.loading ? (
-					<Loading />
-				) : (
-					<div className="searchResults">
-						{this.state.results.length === 0 && this.state.userHasSearched ? (
-							<p>No results found.</p>
-						) : (
-							this.state.results.map(result => {
-								return (
-									<React.Fragment key={result.recipe.url}>
-										<SearchResult
-											name={result.recipe.label}
-											author={result.recipe.source}
-											favorited={false}
-											viewDetails={() => this.viewDetails(result.recipe.url)}
-											favoriteFunction={() =>
-												this.favorite(
-													result.recipe.label,
-													result.recipe.source,
-													result.recipe.yield,
-													result.recipe.ingredientLines,
-													[],
-													result.recipe.url
-												)
-											}
-											canEdit={false}
-										/>
-										{this.state.detailView &&
-										this.state.detailLink === result.recipe.url ? (
-											<RecipeDetails
-												title={result.recipe.label}
+			<DocumentTitle title="Add A Recipe">
+				<div className="addPage">
+					<span id="notif"></span>
+					<h1>
+						<mark>Add a Recipe</mark>
+					</h1>
+					<h2>Type a food name in the box below to search for a recipe</h2>
+					<form className="searchForm" onSubmit={this.handleSearch}>
+						<input
+							type="search"
+							className="searchBar"
+							placeholder="Search for pizza, pasta, or other recipes..."
+							name="searchTerm"
+						></input>
+						<input
+							type="submit"
+							className="searchButton"
+							value="Search"
+						></input>
+					</form>
+					{this.state.loading ? (
+						<Loading />
+					) : (
+						<div className="searchResults">
+							{this.state.results.length === 0 && this.state.userHasSearched ? (
+								<p>No results found.</p>
+							) : (
+								this.state.results.map(result => {
+									return (
+										<React.Fragment key={result.recipe.url}>
+											<SearchResult
+												name={result.recipe.label}
 												author={result.recipe.source}
-												servings={result.recipe.yield}
-												ingredients={result.recipe.ingredientLines}
-												directions={[]}
-												link={result.recipe.url}
+												favorited={false}
+												viewDetails={() => this.viewDetails(result.recipe.url)}
+												favoriteFunction={() =>
+													this.favorite(
+														result.recipe.label,
+														result.recipe.source,
+														result.recipe.yield,
+														result.recipe.ingredientLines,
+														[],
+														result.recipe.url
+													)
+												}
 												canEdit={false}
-											></RecipeDetails>
-										) : (
-											undefined
-										)}
-									</React.Fragment>
-								);
-							})
-						)}
-					</div>
-				)}
-			</div>
+											/>
+											{this.state.detailView &&
+											this.state.detailLink === result.recipe.url ? (
+												<RecipeDetails
+													title={result.recipe.label}
+													author={result.recipe.source}
+													servings={result.recipe.yield}
+													ingredients={result.recipe.ingredientLines}
+													directions={[]}
+													link={result.recipe.url}
+													canEdit={false}
+												></RecipeDetails>
+											) : (
+												undefined
+											)}
+										</React.Fragment>
+									);
+								})
+							)}
+						</div>
+					)}
+				</div>
+			</DocumentTitle>
 		);
 	}
 }
