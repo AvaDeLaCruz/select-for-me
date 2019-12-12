@@ -50,7 +50,6 @@ export default class BookPage extends React.Component {
 	};
 
 	reloadFavorites = async () => {
-		console.log("reloading favorites");
 		let favorites = await this.retrieveFavorites();
 		this.setState({ favorites });
 	};

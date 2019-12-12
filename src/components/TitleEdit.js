@@ -15,7 +15,6 @@ export default class TitleEdit extends React.Component {
 
 	saveToDatabase = async () => {
 		// save new title to db using PUT
-		console.log("saving to db");
 		let author = this.props.author;
 		let originalTitle = this.props.title;
 		let requestBody = { title: this.state.currentValue };
@@ -32,8 +31,6 @@ export default class TitleEdit extends React.Component {
 			let updatedRecipe = await response.json();
 			this.props.showNotification("Recipe edits sucessfully saved.");
 			this.props.reloadFavorites();
-
-			console.log(updatedRecipe);
 		} else {
 			this.props.showNotification("Error updating recipe.");
 		}
@@ -44,14 +41,17 @@ export default class TitleEdit extends React.Component {
 		const { currentValue, previousValue } = this.state;
 
 		if (keyCode === ENTER_KEY) {
-			this.setState({ previousValue: currentValue });
-			this.saveToDatabase();
-			this.props.updateTitle(currentValue);
+			if (this.props.title === this.state.currentValue) {
+				this.setState({ currentValue: previousValue });
+			} else {
+				this.setState({ previousValue: currentValue });
+				this.saveToDatabase();
+				this.props.updateTitle(currentValue);
+			}
+
+			this.props.turnOffEditMode();
 		} else if (keyCode === ESCAPE_KEY) {
 			this.setState({ currentValue: previousValue });
-		}
-
-		if (keyCode === ENTER_KEY || keyCode === ESCAPE_KEY) {
 			this.props.turnOffEditMode();
 		}
 	};

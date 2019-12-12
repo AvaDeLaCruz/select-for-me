@@ -23,7 +23,6 @@ export default class PickPage extends React.Component {
 			this.setState({ loading: false });
 		} else {
 			let randomRecipe = await response.json();
-			console.log(randomRecipe);
 			this.setState({ randomRecipe, loading: false });
 		}
 	};
