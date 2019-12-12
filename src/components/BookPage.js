@@ -22,7 +22,6 @@ export default class BookPage extends React.Component {
 		let url = `${API}/recipes`;
 		let response = await fetch(url);
 		let favorites = await response.json();
-		console.log(favorites);
 		return favorites;
 	}
 

@@ -44,7 +44,7 @@ button img {
 .searchResult input[type="text"] {
 	-webkit-appearance: none;
 	margin: 0;
-	width: 75%;
+	width: auto;
 	height: 25px;
 	box-sizing: border-box;
 	font-size: 25px;
@@ -62,4 +62,18 @@ button img {
 
 .searchResult input[type="text"]:focus {
 	outline: none;
+}
+
+.searchResult .errorMessage.hidden {
+	visibility: hidden;
+}
+
+.searchResult .errorMessage.visible {
+	font-size: 15px;
+	background-color: #6196af;
+	color: white;
+	border: 1px solid #6196af;
+	border-radius: 5px;
+	padding: 5px;
+	visibility: visible;
 }
