@@ -94,43 +94,45 @@ export default class BookPage extends React.Component {
 					) : (
 						<div className="searchResults">
 							{this.state.favorites.length === 0 ? (
-								<p>
+								<p data-testid="no-book-results">
 									No favorites found. Add some recipes to your recipe book using
 									the Add Recipe page.
 								</p>
 							) : (
-								this.state.favorites.map(favorite => {
-									return (
-										<React.Fragment key={favorite.url}>
-											<SearchResult
-												name={favorite.title}
-												author={favorite.author}
-												favorited={true}
-												viewDetails={() => this.viewDetails(favorite.url)}
-												favoriteFunction={() =>
-													this.unfavorite(favorite.title, favorite.author)
-												}
-												canEdit={true}
-												showNotification={this.showNotification}
-												reloadFavorites={this.reloadFavorites}
-											/>
-											{this.state.detailView &&
-											this.state.detailLink === favorite.url ? (
-												<RecipeDetails
-													title={favorite.title}
+								<div data-testid="favorited-recipes">
+									{this.state.favorites.map(favorite => {
+										return (
+											<React.Fragment key={favorite.url}>
+												<SearchResult
+													name={favorite.title}
 													author={favorite.author}
-													servings={favorite.servings}
-													ingredients={favorite.ingredients}
-													directions={favorite.directions}
-													link={favorite.url}
+													favorited={true}
+													viewDetails={() => this.viewDetails(favorite.url)}
+													favoriteFunction={() =>
+														this.unfavorite(favorite.title, favorite.author)
+													}
 													canEdit={true}
+													showNotification={this.showNotification}
+													reloadFavorites={this.reloadFavorites}
 												/>
-											) : (
-												undefined
-											)}
-										</React.Fragment>
-									);
-								})
+												{this.state.detailView &&
+												this.state.detailLink === favorite.url ? (
+													<RecipeDetails
+														title={favorite.title}
+														author={favorite.author}
+														servings={favorite.servings}
+														ingredients={favorite.ingredients}
+														directions={favorite.directions}
+														link={favorite.url}
+														canEdit={true}
+													/>
+												) : (
+													undefined
+												)}
+											</React.Fragment>
+										);
+									})}
+								</div>
 							)}
 						</div>
 					)}

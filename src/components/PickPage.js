@@ -67,16 +67,17 @@ export default class PickPage extends React.Component {
 							book to use this feature.
 						</p>
 					) : (
-						<RecipeDetails
-							title={this.state.randomRecipe.title}
-							author={this.state.randomRecipe.author}
-							servings={this.state.randomRecipe.servings}
-							ingredients={this.state.randomRecipe.ingredients}
-							directions={this.state.randomRecipe.directions}
-							link={this.state.randomRecipe.url}
-							canEdit={true}
-							data-testid="random-recipe"
-						/>
+						<div data-testid="random-recipe">
+							<RecipeDetails
+								title={this.state.randomRecipe.title}
+								author={this.state.randomRecipe.author}
+								servings={this.state.randomRecipe.servings}
+								ingredients={this.state.randomRecipe.ingredients}
+								directions={this.state.randomRecipe.directions}
+								link={this.state.randomRecipe.url}
+								canEdit={true}
+							/>
+						</div>
 					)}
 				</div>
 			</DocumentTitle>

@@ -30,7 +30,7 @@ export default class TitleEdit extends React.Component {
 			body: JSON.stringify(requestBody)
 		});
 		if (response.ok) {
-			let updatedRecipe = await response.json();
+			// let updatedRecipe = await response.json();
 			this.props.showNotification("Recipe edits sucessfully saved.");
 			this.props.reloadFavorites();
 		} else {
@@ -38,13 +38,7 @@ export default class TitleEdit extends React.Component {
 		}
 	};
 
-	validateTitle = async () => {
-		if (this.state.currentValue === "") {
-			this.setState({
-				errorMessage: "Recipes must have a title. Please enter a title."
-			});
-			return false;
-		}
+	noDuplicateRecipes = async () => {
 		let author = this.props.author;
 		let newTitle = this.state.currentValue;
 		let url = `${API}/recipes/${author}/${newTitle}`;
@@ -71,14 +65,21 @@ export default class TitleEdit extends React.Component {
 				this.setState({ currentValue: previousValue });
 				this.props.turnOffEditMode();
 			} else {
+				// if the new title is blank and invalid
+				if (this.state.currentValue === "") {
+					this.setState({
+						errorMessage: "Recipes must have a title. Please enter a title.",
+						errorMessageVisibility: "visible"
+					});
+				}
 				// if title changed and new title is valid
-				if (await this.validateTitle()) {
+				else if (await this.noDuplicateRecipes()) {
 					this.setState({ previousValue: currentValue });
 					this.saveToDatabase();
 					this.props.updateTitle(currentValue);
 					this.props.turnOffEditMode();
 				} else {
-					//invalid title, show error message and don't turn off edit mode
+					//if the new title is a duplicate and is invalid
 					this.setState({ errorMessageVisibility: "visible" });
 				}
 			}
@@ -102,9 +103,13 @@ export default class TitleEdit extends React.Component {
 					value={this.state.currentValue}
 					onKeyUp={this.handleKeyUp}
 					onChange={this.handleChange}
+					data-testid="title-input"
 					autoFocus
 				></input>
-				<span className={`errorMessage ${this.state.errorMessageVisibility}`}>
+				<span
+					className={`${this.state.errorMessageVisibility} errorMessage`}
+					data-testid="title-input-error"
+				>
 					{this.state.errorMessage}
 				</span>
 			</>

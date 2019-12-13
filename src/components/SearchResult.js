@@ -36,7 +36,7 @@ export default class SearchResult extends React.Component {
 						reloadFavorites={this.props.reloadFavorites}
 					/>
 				) : (
-					this.state.currentTitle
+					<span data-testid="result-title-text">{this.state.currentTitle}</span>
 				)}
 
 				<div className="resultAuthor">{this.props.author}</div>
@@ -46,6 +46,7 @@ export default class SearchResult extends React.Component {
 						className="favoriteButton"
 						title="un/favorite recipe"
 						onClick={this.props.favoriteFunction}
+						data-testid="favorite-button"
 					>
 						{this.props.favorited ? (
 							<img src={require("../images/filledHeart.png")}></img>
@@ -55,7 +56,11 @@ export default class SearchResult extends React.Component {
 					</button>
 
 					{this.props.canEdit ? (
-						<button className="editButton" onClick={this.enableEditMode}>
+						<button
+							className="editButton"
+							onClick={this.enableEditMode}
+							data-testid="edit-button"
+						>
 							<img src={require("../images/edit.png")}></img>
 						</button>
 					) : (
@@ -66,6 +71,7 @@ export default class SearchResult extends React.Component {
 						className="detailsButton"
 						title="more details"
 						onClick={this.props.viewDetails}
+						data-testid="details-button"
 					>
 						<img src={require("../images/details.png")}></img>
 					</button>
