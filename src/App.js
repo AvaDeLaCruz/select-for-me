@@ -19,13 +19,19 @@ export default function App() {
 			<Router basename={process.env.PUBLIC_URL}>
 				<ul className="navbar">
 					<li className="left-nav">
-						<NavLink to="/add">Add Recipe</NavLink>
+						<NavLink to="/add" data-testid="add-navbar">
+							Add Recipe
+						</NavLink>
 					</li>
 					<li>
-						<NavLink to="/pick">Pick For Me</NavLink>
+						<NavLink to="/pick" data-testid="pick-navbar">
+							Pick For Me
+						</NavLink>
 					</li>
 					<li className="right-nav">
-						<NavLink to="/book">Recipe Book</NavLink>
+						<NavLink to="/book" data-testid="book-navbar">
+							Recipe Book
+						</NavLink>
 					</li>
 				</ul>
 				<hr></hr>

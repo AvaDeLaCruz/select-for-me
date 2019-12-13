@@ -9,6 +9,8 @@ import DocumentTitle from "react-document-title";
 const API = "https://cooking-companion-api.herokuapp.com";
 
 export default class BookPage extends React.Component {
+	_isMounted = false;
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -26,15 +28,26 @@ export default class BookPage extends React.Component {
 	}
 
 	async componentDidMount() {
-		this.setState({ loading: true });
+		this._isMounted = true;
+		if (this._isMounted) {
+			this.setState({ loading: true });
+		}
 		let favorites = await this.retrieveFavorites();
-		this.setState({ favorites, loading: false });
+		if (this._isMounted) {
+			this.setState({ favorites, loading: false });
+		}
 	}
 
+	componentWillUnmount = () => {
+		this._isMounted = false;
+	};
+
 	viewDetails = url => {
-		url === this.state.detailLink
-			? this.setState({ detailView: false, detailLink: "" })
-			: this.setState({ detailView: true, detailLink: url });
+		if (this._isMounted) {
+			url === this.state.detailLink
+				? this.setState({ detailView: false, detailLink: "" })
+				: this.setState({ detailView: true, detailLink: url });
+		}
 	};
 
 	unfavorite = async (title, author) => {
@@ -50,7 +63,9 @@ export default class BookPage extends React.Component {
 
 	reloadFavorites = async () => {
 		let favorites = await this.retrieveFavorites();
-		this.setState({ favorites });
+		if (this._isMounted) {
+			this.setState({ favorites });
+		}
 	};
 
 	showNotification = message => {

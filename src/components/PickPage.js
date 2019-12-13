@@ -8,6 +8,8 @@ import DocumentTitle from "react-document-title";
 const API = "https://cooking-companion-api.herokuapp.com";
 
 export default class PickPage extends React.Component {
+	_isMounted = false;
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -17,20 +19,42 @@ export default class PickPage extends React.Component {
 	}
 
 	componentDidMount = async () => {
+		this._isMounted = true;
+
 		let url = `${API}/recipes/random`;
 		let response = await fetch(url);
 		if (response.status === 404) {
-			this.setState({ loading: false });
+			if (this._isMounted) {
+				this.setState({ loading: false });
+				this.showNotification("Error: Could not generate a random recipe.");
+			}
 		} else {
 			let randomRecipe = await response.json();
-			this.setState({ randomRecipe, loading: false });
+			if (this._isMounted) {
+				this.setState({ randomRecipe, loading: false });
+				this.showNotification("Successfully generated a new recipe.");
+			}
 		}
+	};
+
+	showNotification = message => {
+		document.getElementById("notif").classList.toggle("visible");
+		document.getElementById("notif").innerText = message;
+		setTimeout(() => {
+			document.getElementById("notif").classList.toggle("visible");
+		}, 2500);
+	};
+
+	componentWillUnmount = () => {
+		this._isMounted = false;
 	};
 
 	render() {
 		return (
 			<DocumentTitle title="Pick For Me">
 				<div className="pickPage">
+					<span id="notif"></span>
+
 					<h1 className="pageTitle">
 						<mark>Recipe Generator</mark>
 					</h1>
@@ -38,7 +62,7 @@ export default class PickPage extends React.Component {
 					{this.state.loading ? (
 						<Loading />
 					) : Object.entries(this.state.randomRecipe).length === 0 ? (
-						<p>
+						<p data-testid="cant-pick">
 							You don't have any saved recipes. Add some recipes to your recipe
 							book to use this feature.
 						</p>
@@ -51,6 +75,7 @@ export default class PickPage extends React.Component {
 							directions={this.state.randomRecipe.directions}
 							link={this.state.randomRecipe.url}
 							canEdit={true}
+							data-testid="random-recipe"
 						/>
 					)}
 				</div>
